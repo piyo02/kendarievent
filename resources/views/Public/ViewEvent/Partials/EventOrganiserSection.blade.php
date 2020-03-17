@@ -10,6 +10,7 @@
                         {{$event->organiser->name}}
                     </a>
                     @else
+                    <a href="https://gerbongsolusi.com" title="Gerbong Solusi Management">
                         {{$event->organiser->name}}
                     @endif
                 </h3>

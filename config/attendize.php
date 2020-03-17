@@ -7,7 +7,7 @@ return [
     'ticket_status_sold_out'        => 1,
     'ticket_status_after_sale_date' => 2,//
     'enable_test_payments'          => env('ENABLE_TEST_PAYMENTS', false),
-    'enable_dummy_payment_gateway'  => false,
+    'enable_dummy_payment_gateway'  => true,
     'payment_gateway_dummy'    => 0,
     'payment_gateway_stripe'   => 1,
     'payment_gateway_paypal'   => 2,
@@ -22,7 +22,7 @@ return [
     'outgoing_email_name'    => env('MAIL_FROM_NAME'),
     'incoming_email'         => env('MAIL_FROM_ADDRESS'),
 
-    'app_name'               => 'Attendize Event Ticketing',
+    'app_name'               => 'Kendari Event',
     'event_default_bg_color' => '#B23333',
     'event_default_bg_image' => 'assets/images/public/EventPage/backgrounds/5.jpg',
 
@@ -59,7 +59,7 @@ return [
     'question_radio_single'         => 6,
 
 
-    'default_timezone'           => 30, #Europe/Dublin
+    'default_timezone'           => 92, #Asia/Singapore
     'default_currency'           => 2, #Euro
     'default_date_picker_format' => env('DEFAULT_DATEPICKER_FORMAT', 'yyyy-MM-dd HH:mm'),
     'default_date_picker_seperator' => env('DEFAULT_DATEPICKER_SEPERATOR', '-'),

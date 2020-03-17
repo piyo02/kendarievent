@@ -7910,9 +7910,9 @@ $.cf = {
 			if(!oDTP.settings.isInline)
 			{
 				$(document).on("click.DateTimePicker", function(e)
-				{
-					oDTP._hidePicker("");
-				});
+				 {
+				 	oDTP._hidePicker("");
+				 });
 			}
 		
 			$(document).on("keydown.DateTimePicker", function(e)

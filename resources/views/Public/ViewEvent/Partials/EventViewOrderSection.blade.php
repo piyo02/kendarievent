@@ -55,10 +55,9 @@
             </span>
             <h1>{{ @trans("Public_ViewEvent.thank_you_for_your_order") }}</h1>
             <h2>
-                {{ @trans("Public_ViewEvent.your") }}
                 <a class="ticket_download_link"
                    href="{{ route('showOrderTickets', ['order_reference' => $order->order_reference] ).'?download=1' }}">
-                    {{ @trans("Public_ViewEvent.tickets") }}</a> {{ @trans("Public_ViewEvent.confirmation_email") }}
+                    {{ @trans("Public_ViewEvent.TICKETS") }}</a> {{ @trans("Public_ViewEvent.your") }} {{ @trans("Public_ViewEvent.confirmation_email") }}
             </h2>
         </div>
     </div>
@@ -95,7 +94,7 @@
                         </div>
 
                         <div class="col-sm-4 col-xs-6">
-                            <b>@lang("Public_ViewEvent.date")</b><br> {{$order->created_at->toDateTimeString()}}
+                            <b>@lang("Public_ViewEvent.date")</b><br> {{$order->created_at->format(config('attendize.default_datetime_format'))}}
                         </div>
 
                         <div class="col-sm-4 col-xs-6">
