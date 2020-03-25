@@ -47,7 +47,7 @@
         </div>
 
         <div class="row">
-          @if( count( $events ) === 0 )
+          @if( count( $events ) == 0 )
           <div class="text-center">
             <h3>Tidak ada Event yang akan dilaksanakan.</h3>
           </div>
@@ -58,7 +58,7 @@
               <div class="speaker">
                 <img src="{{asset( $event->bg_image_path )}}" alt="Speaker 1" class="img-fluid">
                 <div class="details">
-                  <h3><a href="speaker-details.html">{{ $event->title }}</a></h3>
+                  <h3><a href="{{ $event->event_url }}">{{ $event->title }}</a></h3>
                   <p>{{ $event->venue_name }}</p>
                   <div class="social">
                     <p>{{ $event->start_date }}</p>
