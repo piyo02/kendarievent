@@ -21,7 +21,8 @@ class LandingPageController extends Controller
      */
     public function showHome(  )
     {
-        $events = Event::scope()->orderBy('start_date', 'desc')->get();
+        $events = Event::all();
+        // $events = Event::scope()->orderBy('start_date', 'desc')->paginate(12);
         // $events = Event::scope()->where('end_date', '>=', Carbon::now())->get();
         // dd( $events );
         $data = [
