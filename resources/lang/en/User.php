@@ -14,6 +14,7 @@ return array (
   'last_name' => 'Last Name',
   'login' => 'Login',
   'login_fail_msg' => 'Please check your details and try again.',
+  'main_title' => 'KendariEvent',
   'my_profile' => 'My Profile',
   'new_password' => 'New Password',
   'old_password' => 'Old Password',

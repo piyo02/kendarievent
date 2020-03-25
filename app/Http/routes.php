@@ -103,6 +103,30 @@ Route::group(
             'as'   => 'confirmEmail',
             'uses' => 'UserSignupController@confirmEmail',
         ]);
+
+        /*
+         * Landing Page
+         */
+        Route::get('/home', [
+            'uses' => 'LandingPageController@showHome',
+            'as'   => 'homeLandingPage',
+        ]);
+
+        /*
+         * Landing Page Event
+         */
+        Route::get('/event', [
+            'uses' => 'LandingPageController@showEvents',
+            'as'   => 'eventsLandingPage',
+        ]);
+
+        /*
+         * Landing Page News
+         */
+        Route::get('/news', [
+            'uses' => 'LandingPageController@showNews',
+            'as'   => 'newsLandingPage',
+        ]);
     });
 
     /*
