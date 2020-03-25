@@ -6,8 +6,6 @@
 
 @section('content')
 <main id="main" class="main-page">
-    <input type="hidden" id="menu" value="news">
-
     <!-- ======= Hotels Section ======= -->
     <section id="hotels" class="section-with-bg wow fadeInUp">
 

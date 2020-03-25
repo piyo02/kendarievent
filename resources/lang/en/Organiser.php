@@ -29,6 +29,7 @@ return array (
   'hide_additional_organiser_options' => 'Hide Additional Organiser Options',
   'make_organiser_hidden' => 'Hide organiser page from the public.',
   'make_organiser_public' => 'Make organiser page visible to the public.',
+  'news' => 'News',
   'no_upcoming_events' => 'You have no events coming up.',
   'no_upcoming_events_click' => 'You can click here to create an event.',
   'or' => 'or',

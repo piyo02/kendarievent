@@ -15,7 +15,6 @@
   </section><!-- End Intro Section -->
 
   <main id="main">
-  <input type="hidden" id="menu" value="home">
 
     <!-- ======= About Section ======= -->
     <section id="about">
@@ -48,93 +47,28 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <img src="{{asset('vendor_landing/img/speakers/1.jpg')}}" alt="Speaker 1" class="img-fluid">
-              <div class="details">
-                <h3><a href="speaker-details.html">Judul Event</a></h3>
-                <p>Tempat</p>
-                <div class="social">
-                  <p>01-01-2000</p>
+          @if( count( $events ) === 0 )
+          <div class="text-center">
+            <h3>Tidak ada Event yang akan dilaksanakan.</h3>
+          </div>
+          @else
+          
+            @foreach ( $events as $event )
+            <div class="col-lg-4 col-md-6">
+              <div class="speaker">
+                <img src="{{asset( $event->bg_image_path )}}" alt="Speaker 1" class="img-fluid">
+                <div class="details">
+                  <h3><a href="speaker-details.html">{{ $event->title }}</a></h3>
+                  <p>{{ $event->venue_name }}</p>
+                  <div class="social">
+                    <p>{{ $event->start_date }}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <img src="{{asset('vendor_landing/img/speakers/2.jpg')}}" alt="Speaker 2" class="img-fluid">
-              <div class="details">
-                <h3><a href="speaker-details.html">Hubert Hirthe</a></h3>
-                <p>Consequuntur odio aut</p>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <img src="{{asset('vendor_landing/img/speakers/3.jpg')}}" alt="Speaker 3" class="img-fluid">
-              <div class="details">
-                <h3><a href="speaker-details.html">Cole Emmerich</a></h3>
-                <p>Fugiat laborum et</p>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <img src="{{asset('vendor_landing/img/speakers/4.jpg')}}" alt="Speaker 4" class="img-fluid">
-              <div class="details">
-                <h3><a href="speaker-details.html">Jack Christiansen</a></h3>
-                <p>Debitis iure vero</p>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <img src="{{asset('vendor_landing/img/speakers/5.jpg')}}" alt="Speaker 5" class="img-fluid">
-              <div class="details">
-                <h3><a href="speaker-details.html">Alejandrin Littel</a></h3>
-                <p>Qui molestiae natus</p>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <img src="{{asset('vendor_landing/img/speakers/6.jpg')}}" alt="Speaker 6" class="img-fluid">
-              <div class="details">
-                <h3><a href="speaker-details.html">Willow Trantow</a></h3>
-                <p>Non autem dicta</p>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+            @endforeach
+          
+          @endif
         </div>
       </div>
 

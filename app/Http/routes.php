@@ -283,6 +283,11 @@ Route::group(
                 'uses' => 'OrganiserEventsController@showEvents',
             ]);
 
+            Route::get('{organiser_id}/news', [
+                'as'   => 'showOrganiserNews',
+                'uses' => 'OrganiserNewsController@showNews',
+            ]);
+
             Route::get('{organiser_id}/customize', [
                 'as'   => 'showOrganiserCustomize',
                 'uses' => 'OrganiserCustomizeController@showCustomize',
@@ -734,7 +739,7 @@ Route::group(
     });
 
     Route::get('/', function () {
-        return Redirect::route('showSelectOrganiser');
+        return Redirect::route('homeLandingPage');
         // I prefer it that way:
         // return Redirect::route('showOrganiserHome', ["organiser_id"=>1]);
     });

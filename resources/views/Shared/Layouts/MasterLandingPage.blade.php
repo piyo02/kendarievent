@@ -39,9 +39,10 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li id="home"><a href="{{ url('/home') }}">Home</a></li>
-          <li id="event"><a href="{{ url('/event') }}">Event</a></li>
-          <li id="news"><a href="{{ url('/news') }}">Berita</a></li>
+          <li class="{{ Request::is('*home*') ? 'menu-active' : '' }}"><a href="{{ url('/home') }}">Home</a></li>
+          <li class="{{ Request::is('*event*') ? 'menu-active' : '' }}"><a href="{{ url('/event') }}">Event</a></li>
+          <li class="{{ Request::is('*news*') ? 'menu-active' : '' }}"><a href="{{ url('/news') }}">Berita</a></li>
+          <li><a href="{{ url('/login') }}" class="btn btn-outline-primary">Login</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -120,12 +121,6 @@
 
   <!-- Template Main JS File -->
     {!! HTML::script(config('attendize.cdn_url_static_assets').'/vendor_landing/js/main.js') !!}
-    <script>
-        var menu = document.getElementById('menu').value;
-        console.log(menu)
-        var menulist = document.getElementById(menu);
-        menulist.classList.add('menu-active');
-    </script>
 </body>
 
 </html>
