@@ -7,10 +7,9 @@
 @section('content')
 <section id="intro">
     <div class="intro-container wow fadeIn">
-      <h1 class="mb-4 pb-0">The Annual<br><span>Marketing</span> Conference</h1>
-      <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
-      <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
-      <a href="#about" class="about-btn scrollto">About The Event</a>
+      <h1 class="mb-4 pb-0">Event Organiser<br><span>Kendari</span> Event</h1>
+      <p class="mb-4 pb-0">make your event with us!!!</p>
+      <!-- <a href="#about" class="about-btn scrollto">About The Event</a> -->
     </div>
   </section><!-- End Intro Section -->
 
@@ -22,17 +21,11 @@
         <div class="row">
           <div class="col-lg-6">
             <h2>Tentang Kendari Event</h2>
-            <p>Sed nam ut dolor qui repellendus iusto odit. Possimus inventore eveniet accusamus error amet eius aut
-              accusantium et. Non odit consequatur repudiandae sequi ea odio molestiae. Enim possimus sunt inventore in
-              est ut optio sequi unde.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro pariatur vero possimus nobis beatae voluptatibus adipisci cum nihil quas earum?</p>
           </div>
           <div class="col-lg-3">
-            <h3>Where</h3>
-            <p>Downtown Conference Center, New York</p>
-          </div>
-          <div class="col-lg-3">
-            <h3>When</h3>
-            <p>Monday to Wednesday<br>10-12 December</p>
+            <h3>Lokasi</h3>
+            <p>Lokasi KendariEvent</p>
           </div>
         </div>
       </div>
@@ -43,7 +36,7 @@
       <div class="container">
         <div class="section-header">
           <h2>Event</h2>
-          <p>Upcoming Events</p>
+          <p>Event tebaru di KendariEvent</p>
         </div>
 
         <div class="row">
@@ -84,37 +77,24 @@
         </div>
 
         <div class="row">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="hotel">
-              <div class="hotel-img">
-                <img src="{{asset('vendor_landing/img/hotels/1.jpg')}}" alt="Hotel 1" class="img-fluid">
-              </div>
-              <h3><a href="#">Judul Berita</a></h3>
-              <p>Preview Berita</p>
-            </div>
+        @if( count( $news ) == 0 )
+          <div class="text-center">
+            <h3>Tidak ada Berita terbaru.</h3>
           </div>
+          @else
 
-          <div class="col-lg-4 col-md-6">
-            <div class="hotel">
-              <div class="hotel-img">
-                <img src="{{asset('vendor_landing/img/hotels/2.jpg')}}" alt="Hotel 2" class="img-fluid">
+            @foreach ( $news as $item )
+            <div class="col-lg-4 col-md-6">
+              <div class="hotel">
+                <div class="hotel-img text-center">
+                  <img src="{{asset($item->image)}}" alt="{{$item->title}}" class="img-fluid">
+                </div>
+                <h3><a href="{{route('postNewsLandingPage', ['news_id' => $item->id])}}">{{$item->title}}</a></h3>
+                <p>{{$item->preview}}</p>
               </div>
-              <h3><a href="#">Hotel 2</a></h3>
-              <p>0.5 Mile from the Venue</p>
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="hotel">
-              <div class="hotel-img">
-                <img src="{{asset('vendor_landing/img/hotels/3.jpg')}}" alt="Hotel 3" class="img-fluid">
-              </div>
-              <h3><a href="#">Hotel 3</a></h3>
-              <p>0.6 Mile from the Venue</p>
-            </div>
-          </div>
-
+            @endforeach
+          @endif
         </div>
       </div>
 

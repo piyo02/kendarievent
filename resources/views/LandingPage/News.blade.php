@@ -16,37 +16,23 @@
           </div>
   
           <div class="row">
-  
-            <div class="col-lg-4 col-md-6">
-              <div class="hotel">
-                <div class="hotel-img">
-                  <img src="{{ asset('vendor_landing/img/hotels/1.jpg') }}" alt="Hotel 1" class="img-fluid">
-                </div>
-                <h3><a href="single-post.html">Judul Berita</a></h3>
-                <p>Preview Berita</p>
-              </div>
+            @if( count( $news ) == 0 )
+            <div class="text-center">
+              <h3>Tidak ada Event yang akan dilaksanakan.</h3>
             </div>
-  
-            <div class="col-lg-4 col-md-6">
-              <div class="hotel">
-                <div class="hotel-img">
-                  <img src="{{ asset('vendor_landing/img/hotels/2.jpg') }}" alt="Hotel 2" class="img-fluid">
+            @else
+              @foreach ( $news as $item )
+              <div class="col-lg-4 col-md-6">
+                <div class="hotel">
+                  <div class="hotel-img">
+                    <img src="{{asset($item->image)}}" alt="{{$item->title}}" class="img-fluid">
+                  </div>
+                  <h3><a href="{{route('postNewsLandingPage', ['news_id' => $item->id])}}">{{$item->title}}</a></h3>
+                  <p>{{$item->preview}}</p>
                 </div>
-                <h3><a href="single-post.html">Hotel 2</a></h3>
-                <p>0.5 Mile from the Venue</p>
               </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6">
-              <div class="hotel">
-                <div class="hotel-img">
-                  <img src="{{ asset('vendor_landing/img/hotels/3.jpg') }}" alt="Hotel 3" class="img-fluid">
-                </div>
-                <h3><a href="single-post.html">Hotel 3</a></h3>
-                <p>0.6 Mile from the Venue</p>
-              </div>
-            </div>
-  
+              @endforeach
+            @endif
           </div>
         </div>
   

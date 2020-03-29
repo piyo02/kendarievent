@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Attendize\Utils;
 use App\Models\Event;
-use App\Models\EventStats;
+use App\Models\News;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Redirect;
 use View;
 
-class LandingPageController extends Controller
+class LandingPageController extends MyBaseController
 {
     /**
      * Shows Home Landing Page.
@@ -21,29 +20,46 @@ class LandingPageController extends Controller
      */
     public function showHome(  )
     {
-        $events = Event::all();
-        // $events = Event::scope()->orderBy('start_date', 'desc')->paginate(12);
-        // $events = Event::scope()->where('end_date', '>=', Carbon::now())->get();
-        // dd( $events );
+        // dd(Event::scope()->where('end_date', '>=', Carbon::now())->get());
+        // $events = Event::all();
+        $news = News::orderBy('id', 'desc')->paginate(3);
+        $events = Event::where('end_date', '>=', Carbon::now())->get();
+        // dd( $news );
         $data = [
-            'events' => $events
+            'events' => $events,
+            'news' => $news
         ];
         return view('LandingPage.Dashboard', $data);
     }
 
     public function showEvents(  )
     {
-        $event = Event::all();
-        // $event = $event->getEventUrlAttribute();
-        // dd( $event );
-        return view('LandingPage.Event');
+        $events = Event::orderBy('start_date', 'desc')->get();
+        $data = [
+            'events' => $events
+        ];
+        return view('LandingPage.Event', $data);
     }
 
     public function showNews(  )
     {
-        $event = Event::all();
-        // $event = $event->getEventUrlAttribute();
-        // dd( $event );
-        return view('LandingPage.News');
+        $news = News::all();
+        $data = [
+            'news' => $news
+        ];
+        return view('LandingPage.News', $data);
+    }
+
+    public function showPostNews(Request $request, $news_id)
+    {
+        $latest_news = News::orderBy('id', 'desc')->paginate(3);
+        $news = News::findOrFail($news_id);
+        $file_content = file_get_contents(public_path($news->file_content));
+        $data = [
+            'news' => $news,
+            'latest_news' => $latest_news,
+            'file_content' => $file_content
+        ];
+        return view('LandingPage.Article', $data);
     }
 }

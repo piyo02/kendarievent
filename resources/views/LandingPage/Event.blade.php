@@ -11,24 +11,30 @@
         <div class="container">
           <div class="section-header">
             <h2>Event</h2>
-            <p>Upcoming Events</p>
+            <p>Daftar Events</p>
           </div>
   
           <div class="row">
-            @foreach ( $events as $event )
-            <div class="col-lg-4 col-md-6">
-              <div class="speaker">
-                <img src="{{asset( $event->bg_image_path )}}" alt="Speaker 1" class="img-fluid">
-                <div class="details">
-                  <h3><a href="speaker-details.html">{{ $event->title }}</a></h3>
-                  <p>{{ $event->venue_name }}</p>
-                  <div class="social">
-                    <p>{{ $event->start_date }}</p>
+          @if( count( $events ) == 0 )
+          <div class="text-center">
+            <h3>Tidak ada Event yang akan dilaksanakan.</h3>
+          </div>
+          @else
+              @foreach ( $events as $event )
+              <div class="col-lg-4 col-md-6">
+                <div class="speaker">
+                  <img src="{{asset( $event->bg_image_path )}}" alt="Speaker 1" class="img-fluid">
+                  <div class="details">
+                    <h3><a href="speaker-details.html">{{ $event->title }}</a></h3>
+                    <p>{{ $event->venue_name }}</p>
+                    <div class="social">
+                      <p>{{ $event->start_date }}</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            @endforeach
+              @endforeach
+            @endif
           </div>
         </div>
   

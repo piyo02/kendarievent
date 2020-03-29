@@ -9,6 +9,7 @@ return array (
   'sort' =>
   array (
     'event_title' => 'Event Title',
+    'news_title' => 'News Title',
     'start_date' => 'Start Date',
     'created_at' => 'Creation Date',
     'quantity_sold' => 'Quantity Sold',
@@ -92,6 +93,7 @@ return array (
   'success_name_has_received_instruction' => 'Success! <b>:name</b> has been sent further instructions.',
   'successfully_cancelled_attendee' => 'Successfully Cancelled Attendee!',
   'successfully_cancelled_attendees' => 'Successfully Cancelled Attendees!',
+  'successfully_created_news' => 'Successfully News!',
   'successfully_created_organiser' => 'Successfully Created Organiser!',
   'successfully_created_question' => 'Successfully Created Question',
   'successfully_deleted_question' => 'Successfully Deleted Question',
@@ -100,6 +102,7 @@ return array (
   'successfully_refunded_order' => 'Successfully Refunded Order!',
   'successfully_saved_details' => 'Successfully Saved Details!',
   'successfully_updated_attendee' => 'Successfully Updated Attendee!',
+  'successfully_updated_news' => 'Successfully Updated News!',
   'successfully_updated_organiser' => 'Successfully Updated Organiser!',
   'successfully_updated_question' => 'Question Successfully Updated',
   'successfully_updated_question_order' => 'Question Order Successfully Updated',

@@ -1,9 +1,9 @@
 <div role="dialog"  class="modal fade" style="display: none;">
 
-    @include('ManageOrganiser.Partials.EventCreateAndEditJS');
+    @include('ManageNews.Partials.EventCreateAndEditJS');
 
     {!! Form::open(array('url' => route('postCreateEvent'), 'class' => 'ajax gf')) !!}
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>

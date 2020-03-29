@@ -127,6 +127,14 @@ Route::group(
             'uses' => 'LandingPageController@showNews',
             'as'   => 'newsLandingPage',
         ]);
+
+        /*
+         * Landing Page Single News
+         */
+        Route::get('/news/{news_id}', [
+            'uses' => 'LandingPageController@showPostNews',
+            'as'   => 'postNewsLandingPage',
+        ]);
     });
 
     /*
@@ -287,6 +295,14 @@ Route::group(
                 'as'   => 'showOrganiserNews',
                 'uses' => 'OrganiserNewsController@showNews',
             ]);
+            Route::get('{organiser_id}/news/create', [
+                'as'   => 'createOrganiserNews',
+                'uses' => 'OrganiserNewsController@createNews',
+            ]);
+            Route::post('createnews', [
+                'as'   => 'postCreateNews',
+                'uses' => 'OrganiserNewsController@postCreateNews',
+            ]);
 
             Route::get('{organiser_id}/customize', [
                 'as'   => 'showOrganiserCustomize',
@@ -330,6 +346,36 @@ Route::group(
             Route::post('/create', [
                 'as'   => 'postCreateEvent',
                 'uses' => 'EventController@postCreateEvent',
+            ]);
+        });
+
+        /*
+         * News dashboard
+         */
+        Route::group(['prefix' => 'news'], function () {
+
+            /*
+             * ----------
+             * Edit News
+             * ----------
+             */
+            Route::get('{news_id}/edit', [
+                'as'   => 'editNews',
+                'uses' => 'OrganiserNewsController@editNews',
+            ]);
+            Route::post('{news_id}/edit', [
+                'as'   => 'postEditNews',
+                'uses' => 'OrganiserNewsController@postEditNews',
+            ]);
+
+            /*
+             * ----------
+             * Delete News
+             * ----------
+             */
+            Route::delete('{news_id}/news/delete', [
+                'as'   => 'postDeleteNews',
+                'uses' => 'OrganiserNewsController@postDeleteNews',
             ]);
         });
 

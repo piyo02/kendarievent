@@ -72,6 +72,16 @@ class Organiser extends MyBaseModel implements AuthenticatableContract
     }
 
     /**
+     * The news associated with the organizer.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function news()
+    {
+        return $this->hasMany(\App\Models\News::class);
+    }
+
+    /**
      * The attendees associated with the organizer.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
