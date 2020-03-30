@@ -54,11 +54,9 @@ class LandingPageController extends MyBaseController
     {
         $latest_news = News::orderBy('id', 'desc')->paginate(3);
         $news = News::findOrFail($news_id);
-        $file_content = file_get_contents(public_path($news->file_content));
         $data = [
             'news' => $news,
             'latest_news' => $latest_news,
-            'file_content' => $file_content
         ];
         return view('LandingPage.Article', $data);
     }

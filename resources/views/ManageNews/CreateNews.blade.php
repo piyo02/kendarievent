@@ -34,7 +34,7 @@
 
 @section('content')
 
-    @include('ManageOrganiser.Partials.EventCreateAndEditJS')
+    @include('ManageNews.Partials.EventCreateAndEditJS')
 
     <div class="row">
     {!! Form::open(array('url' => route('postCreateNews'), 'class' => 'ajax gf' )) !!}
@@ -61,8 +61,9 @@
                 {!! Form::label('content', trans("News.news_content"), array('class'=>'control-label required')) !!}
                 {!!  Form::textarea('content', Input::old('content'),
                             array(
-                            'class'=>'form-control  editable',
-                            'rows' => 5
+                            'class'=>'form-control',
+                            'rows' => 10,
+                            'id' => 'summernote'
                             ))  !!}
             </div>
             <div class="form-group">
@@ -157,4 +158,11 @@
         </div>
     {!! Form::close() !!}
     </div>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 120
+            });
+        });
+    </script>
 @stop

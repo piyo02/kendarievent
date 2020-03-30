@@ -1,6 +1,9 @@
 {!! HTML::script('vendor/simplemde/dist/simplemde.min.js') !!}
 {!! HTML::style('vendor/simplemde/dist/simplemde.min.css') !!}
 
+<!-- summernote -->
+{!! HTML::script('assets/javascript/summernote.min.js') !!}
+{!! HTML::style('assets/stylesheet/summernote.min.css') !!}
 <script>
     $(function() {
         try {

@@ -19,14 +19,15 @@
             <div class="text-center">
               <img src="{{asset($news->image)}}" alt="{{$news->title}}" class="img-fluid" width="100%">
             </div>
-            {{$file_content}}
+            <?php $content = file_get_contents(public_path($news->file_content)) ?>
+            <?= $content ?>
           </div>
 
           <div class="col-md-3">
             <div class="details">
               <h2>Berita Terbaru</h2>
               @foreach ( $latest_news as $item )
-                <div id="speakers">
+                <div id="speakers" style="padding: 0px !important;">
                   <div class="speaker">
                       <img src="{{$item->image}}" alt="{{$item->title}}" class="img-fluid">
                       <div class="details">
