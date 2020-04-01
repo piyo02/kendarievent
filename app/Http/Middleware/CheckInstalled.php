@@ -23,7 +23,7 @@ class CheckInstalled
          * Check if the 'installed' file has been created
          */
         if (!file_exists(base_path('installed')) && !Utils::isAttendize()) {
-            // return Redirect::to('install');
+            return Redirect::to('install');
         }
 
         /*
