@@ -23,9 +23,9 @@
               @foreach ( $events as $event )
               <div class="col-lg-4 col-md-6">
                 <div class="speaker">
-                  <img src="{{asset( $event->bg_image_path )}}" alt="Speaker 1" class="img-fluid">
+                  <img src="{{asset( ($event->image_path) ? $event->image_path : 'user_content/event_images/default.jpg' )}}" alt="Speaker 1" class="img-fluid">
                   <div class="details">
-                    <h3><a href="speaker-details.html">{{ $event->title }}</a></h3>
+                    <h3><a href="{{ $event->event_url }}">{{ $event->title }}</a></h3>
                     <p>{{ $event->venue_name }}</p>
                     <div class="social">
                       <p>{{ $event->start_date }}</p>

@@ -7,8 +7,8 @@
 @section('content')
 <section id="intro">
     <div class="intro-container wow fadeIn">
-      <h1 class="mb-4 pb-0">Event Organiser<br><span>Kendari</span> Event</h1>
-      <p class="mb-4 pb-0">make your event with us!!!</p>
+      <h1 class="mb-4 pb-0"><span>Kendari</span> Event</h1>
+      <p class="mb-4 pb-0">it's all about event!!!</p>
       <!-- <a href="#about" class="about-btn scrollto">About The Event</a> -->
     </div>
   </section><!-- End Intro Section -->

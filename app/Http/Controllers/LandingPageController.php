@@ -34,7 +34,9 @@ class LandingPageController extends MyBaseController
 
     public function showEvents(  )
     {
-        $events = Event::orderBy('start_date', 'desc')->get();
+        $events = Event::leftJoin('event_images', 'events.id', '=', 'event_images.event_id')
+                        ->select('events.*', 'event_images.image_path')
+                        ->orderBy('start_date', 'desc')->get();
         $data = [
             'events' => $events
         ];

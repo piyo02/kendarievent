@@ -42,7 +42,7 @@
           <li class="{{ Request::is('*home*') ? 'menu-active' : '' }}"><a href="{{ url('/home') }}">Home</a></li>
           <li class="{{ Request::is('*event*') ? 'menu-active' : '' }}"><a href="{{ url('/event') }}">Event</a></li>
           <li class="{{ Request::is('*news*') ? 'menu-active' : '' }}"><a href="{{ url('/news') }}">Berita</a></li>
-          <li><a href="{{ url('/login') }}" class="btn btn-outline-primary">Login</a></li>
+          <li><a href="{{ url('/login') }}">Sign In</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
