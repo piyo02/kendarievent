@@ -35,21 +35,21 @@
     <section id="speakers" class="wow fadeInUp">
       <div class="container">
         <div class="section-header">
-          <h2>Event</h2>
+          <h2>Event Terbaru</h2>
           <p>Event tebaru di KendariEvent</p>
         </div>
 
         <div class="row">
-          @if( count( $events ) == 0 )
+          @if( count( $upcoming_events ) == 0 )
           <div class="text-center">
             <h3>Tidak ada Event yang akan dilaksanakan.</h3>
           </div>
           @else
           
-            @foreach ( $events as $event )
+            @foreach ( $upcoming_events as $event )
             <div class="col-lg-4 col-md-6">
               <div class="speaker">
-                <img src="{{asset( $event->bg_image_path )}}" alt="Speaker 1" class="img-fluid">
+                <img src="{{asset( ($event->image_path) ? $event->image_path : 'user_content/event_images/default.jpg'   )}}" alt="Speaker 1" class="img-fluid">
                 <div class="details">
                   <h3><a href="{{ $event->event_url }}">{{ $event->title }}</a></h3>
                   <p>{{ $event->venue_name }}</p>
@@ -67,8 +67,36 @@
 
     </section><!-- End Speakers Section -->
 
+    <!-- ======= Speakers Section ======= -->
+    <section id="speakers" class="section-with-bg wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Event</h2>
+          <p>Event yang sudah dilaksanakan KendariEvent</p>
+        </div>
+
+        <div class="row">
+            @foreach ( $past_events as $event )
+            <div class="col-lg-4 col-md-6">
+              <div class="speaker">
+                <img src="{{asset( ($event->image_path) ? $event->image_path : 'user_content/event_images/default.jpg' )}}" alt="Speaker 1" class="img-fluid">
+                <div class="details">
+                  <h3><a href="{{ $event->event_url }}">{{ $event->title }}</a></h3>
+                  <p>{{ $event->venue_name }}</p>
+                  <div class="social">
+                    <p>{{ $event->start_date }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            @endforeach
+        </div>
+      </div>
+
+    </section><!-- End Speakers Section -->
+
     <!-- ======= Hotels Section ======= -->
-    <section id="hotels" class="section-with-bg wow fadeInUp">
+    <section id="hotels" class="wow fadeInUp">
 
       <div class="container">
         <div class="section-header">

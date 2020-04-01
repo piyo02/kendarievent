@@ -20,13 +20,20 @@ class LandingPageController extends MyBaseController
      */
     public function showHome(  )
     {
-        // dd(Event::scope()->where('end_date', '>=', Carbon::now())->get());
-        // $events = Event::all();
         $news = News::orderBy('id', 'desc')->paginate(3);
-        $events = Event::where('end_date', '>=', Carbon::now())->get();
-        // dd( $news );
+
+        $upcoming_events = Event::leftJoin('event_images', 'events.id', '=', 'event_images.event_id')
+                                ->select('events.*', 'event_images.image_path')
+                                ->where('end_date', '>=', Carbon::now())
+                                ->orderBy('start_date', 'desc')->get();
+        $past_events = Event::leftJoin('event_images', 'events.id', '=', 'event_images.event_id')
+                                ->select('events.*', 'event_images.image_path')
+                                ->where('end_date', '<', Carbon::now())
+                                ->orderBy('start_date', 'desc')->limit(10)->get();
+
         $data = [
-            'events' => $events,
+            'upcoming_events' => $upcoming_events,
+            'past_events' => $past_events,
             'news' => $news
         ];
         return view('LandingPage.Dashboard', $data);
