@@ -25,10 +25,12 @@ class LandingPageController extends MyBaseController
         $upcoming_events = Event::leftJoin('event_images', 'events.id', '=', 'event_images.event_id')
                                 ->select('events.*', 'event_images.image_path')
                                 ->where('end_date', '>=', Carbon::now())
+                                ->where('is_live', '>=', 1)
                                 ->orderBy('start_date', 'desc')->get();
         $past_events = Event::leftJoin('event_images', 'events.id', '=', 'event_images.event_id')
                                 ->select('events.*', 'event_images.image_path')
                                 ->where('end_date', '<', Carbon::now())
+                                ->where('is_live', '>=', 1)
                                 ->orderBy('start_date', 'desc')->limit(10)->get();
 
         $data = [
@@ -43,6 +45,7 @@ class LandingPageController extends MyBaseController
     {
         $events = Event::leftJoin('event_images', 'events.id', '=', 'event_images.event_id')
                         ->select('events.*', 'event_images.image_path')
+                        ->where('is_live', '>=', 1)
                         ->orderBy('start_date', 'desc')->get();
         $data = [
             'events' => $events
