@@ -60,7 +60,7 @@
 
           <div class="col-lg-3 col-md-6 footer-info">
             <img src="{{asset('vendor_landing/img/kendarievent-logo.png')}}" alt="TheEvenet">
-            <p>In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</p>
+            <p>It's all about Event!</p>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
@@ -78,11 +78,11 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              Jl. H.Supu Yusuf No. 1 <br>
+              Kendari, Sulawesi Tenggara<br>
+              Indonesia <br>
+              <strong>Phone:</strong> 0811 4033 666<br>
+              {{-- <strong>Email:</strong> info@example.com<br> --}}
             </p>
 
             <div class="social-links">
