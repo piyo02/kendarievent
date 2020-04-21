@@ -82,7 +82,7 @@
               Kendari, Sulawesi Tenggara<br>
               Indonesia <br>
               <strong>Phone:</strong> 0811 4033 666<br>
-              {{-- <strong>Email:</strong> info@example.com<br> --}}
+              <strong>Email:</strong> kendari.event@gmail.com<br>
             </p>
 
             <div class="social-links">
